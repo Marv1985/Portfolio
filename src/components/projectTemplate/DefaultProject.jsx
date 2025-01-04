@@ -17,13 +17,15 @@ const DefaultProject = () => {
 
     return (
         <div className="individual_project_parent">
+          {/* Project GIF */}
           <div className="project_and_tech">
-            <h1><span>this</span><span>.</span><span>Portfolio</span></h1>
-            <img src="projectGifs/portfolio.gif" alt="" />
+            <h1>My Portfolio</h1>
+            <img src="projectImgs/portfolio.png" alt="portfolio" />
           </div>
           <div className="about_project">
+            {/* Tech icons */}
             <div className="tech_used">
-              <h3>TECH USED</h3>
+              <h3 className='tech_title'>TECH USED</h3>
               <div className="tech_icons_container">
                 {Object.entries(obj).map(([key, { svg: SvgComponent, text }]) => (
                         <div key={key} className="icon_container">
@@ -33,7 +35,32 @@ const DefaultProject = () => {
                     ))}
               </div>
             </div>
-            
+            {/* Project details */}
+            <div className="project_details">
+              <h3 className='project_details_title'>Under the Hood</h3>
+              <div className="project_content">
+                    <p>Creating this portfolio was a rewarding challenge that allowed me to showcase both my technical skills and creativity. Here's what went into building it:</p>
+                    <ul>
+                      <li>
+                        <span>Technologies Used: </span>
+                        The portfolio was built using React for its dynamic and component-based architecture, GSAP for powerful and smooth animations, along with JavaScript (ES6+), HTML, and CSS for the structure, logic, and styling.
+                      </li>
+                      <li>
+                        <span>Animations with GSAP: </span>
+                        I used GSAP extensively to create engaging animations, ensuring a seamless and polished user experience. From subtle hover effects to complex page transitions, GSAP was instrumental in bringing the site to life.
+                      </li>
+                      <li>
+                        <span>Code Quality and Optimization: </span>
+                        Special attention was given to maintaining clean, modular code and following best practices. I prioritized efficient state management and leveraged React’s component lifecycle to ensure proper cleanup of GSAP animations when components unmounted, preventing memory leaks and maintaining performance.
+                      </li>
+                      <li>
+                        <span>Responsive Design: </span>
+                        The site is fully responsive, providing an optimal viewing experience across devices. This was achieved by combining modern CSS techniques and thoughtful layout planning.
+                      </li>
+                    </ul>
+                    <p>This project reflects my ability to combine technical expertise with a strong eye for design and performance optimization, all while ensuring a smooth and intuitive user experience.</p>
+              </div>
+            </div>
           </div>
         </div>
       )

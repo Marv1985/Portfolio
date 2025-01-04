@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { projectsData } from '../projectTemplate/projectsData';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import useFloatingHover from '../../floatingHoverAnimation/useFloatingHover';
 
 const SideMenu = () => {
     const { hoverDiv, hoverDivContainer, floatingSelectorShow, floatingSelectorHide, floatingSelectorMoveIn } = useFloatingHover();
+    const location = useLocation();
 
     // Initialize state with the first link as 'true' and all others as 'false'
     const [selectedLinks, setSelectedLinks] = useState(() => {
@@ -30,6 +31,22 @@ const SideMenu = () => {
             return updatedLinks; // Return object to state
         });
     };
+
+    // Update selected link state when the URL changes
+    useEffect(() => {
+        const currentPath = location.pathname;
+        const pathKey = currentPath.startsWith('/projects/') 
+            ? currentPath.replace('/projects/', '') 
+            : 'portfolio'; // Default to 'portfolio'
+
+        setSelectedLinks((prev) => {
+            const updatedLinks = Object.keys(prev).reduce((acc, curr) => {
+                acc[curr] = curr === pathKey; // True for the matching key, false otherwise
+                return acc;
+            }, {});
+            return updatedLinks;
+        });
+    }, [location.pathname]);
     
 
     return (

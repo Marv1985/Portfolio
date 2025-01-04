@@ -18,7 +18,7 @@ const Footer = () => {
             <div className="max_width">
                 <p>&copy; Marv Shannon {currentDate}</p>
                 <div className="right">
-                    <a title='GitHub' href='https://github.com/Marv1985' target='_blank'>
+                    <a title='GitHub' href='https://github.com/Marv1985?tab=repositories' target='_blank'>
                         <GitHubIcon/>
                     </a>
                     <a title='Email' href="mailto:marvinshannon@hotmail.co.uk">

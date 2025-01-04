@@ -1,30 +1,13 @@
 .individual_project_parent {
     display: flex;
     margin: 9rem 4rem;
-    gap: 3rem;
+    gap: clamp(3.5rem, 2vi + 1.3rem, 4rem);
 }
 
 .individual_project_parent h1 {
-    font-size: 3.5rem;
-    font-weight: 300;
+    font-size: clamp(2.7rem, 4vi + -2.5rem, 3.5rem);
+    font-weight: 400;
     color: white;
-}
-
-.individual_project_parent h1 span {
-    font-family: Consolas, Inter, system-ui, Avenir, Helvetica;
-}
-
-.individual_project_parent h1 span:nth-of-type(1) {
-    color: #1f51b3;
-}
-
-.individual_project_parent h1 span:nth-of-type(2) {
-    color: white;
-    font-size: 2.3rem;
-}
-
-.individual_project_parent h1 span:nth-of-type(3) {
-    color: #9cdcf7;
 }
 
 .individual_project_parent .project_and_tech {
@@ -33,20 +16,24 @@
     background: radial-gradient(circle at center, #2d4861, #172430);
     padding: 1.5rem;
     padding-top: 2rem;
-    border-radius: 1.8rem;
+    border-radius: clamp(0.8rem, 1.14vi + 0.35rem, 1.8rem);
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    height: fit-content;
 }
 
 .individual_project_parent .about_project {
     flex: .5;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
 }
 
 .individual_project_parent .project_and_tech img {
     width: 100%;
-    border-radius: .8rem;
-    object-fit: contain;
+    border-radius: .5rem;
+    object-fit: cover;
 }
 
 .individual_project_parent .tech_used {
@@ -67,7 +54,12 @@
     position: relative;
 }
 
-.individual_project_parent h3::after {
+.individual_project_parent .project_details_title {
+    text-decoration: underline;
+    width: fit-content;
+}
+
+.individual_project_parent .tech_title::after {
     content: ':';
     position: relative;
     bottom: 2px;
@@ -96,6 +88,30 @@
     height: 4rem;
 }
 
+.individual_project_parent .project_details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-weight: 400;
+}
+
+.individual_project_parent .project_details ul {
+    list-style-type: disc;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.individual_project_parent .project_details ul span {
+    font-weight: 700;
+}
+
+.individual_project_parent .project_content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
 @media (hover: hover) and (pointer: fine) {
     .individual_project_parent .tech_icons_container:hover .icon_container {
         transform: scale(.8);
@@ -105,5 +121,41 @@
     .individual_project_parent .tech_icons_container .icon_container:hover {
         transform: scale(1);
         opacity: 1;
+    }
+}
+
+/* 1300px */
+@media screen and (max-width: 81.25em) {
+    .individual_project_parent {
+        flex-direction: column;
+    }
+
+    .individual_project_parent .project_details ul {
+        margin-left: 1.9rem;
+    }
+
+    .projects_parent h1 {
+        font-size: clamp(2.7rem, 0.75vi + 2.4rem, 3rem);
+    }
+}
+
+/* 800px */
+@media screen and (max-width: 50em) {
+    .projects_parent .right_side {
+        width: 100%;
+        padding-bottom: 4rem;
+    }
+
+    .individual_project_parent {
+        width: calc(100% - clamp(4rem, 2.27vi + 3.09rem, 6rem));
+        margin: 0 auto;
+    }
+
+    .individual_project_parent .project_and_tech {
+        padding: 1rem;
+    }
+
+    .individual_project_parent .project_and_tech img {
+        border-radius: .8rem;
     }
 }
