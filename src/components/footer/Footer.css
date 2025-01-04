@@ -1,0 +1,36 @@
+.footerContainer .max_width {
+    padding: 1rem 0;
+    width: calc(100% - clamp(2.5rem, 0.71vi + 2.21rem, 4rem));
+    margin: 0 auto;
+    max-width: 180rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: end; 
+}
+
+.footerContainer p {
+    font-size: 1.2rem;
+}
+
+.footerContainer a {
+    height: 3rem;
+    width: 3rem;
+}
+
+.footerContainer svg {
+    fill: var(--text-color);
+    height: 3rem;
+    width: 3rem;
+    transition: fill .3s ease;
+}
+
+.footerContainer .right {
+    display: flex;
+    gap: .6rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .footerContainer a:hover svg {
+        fill: var(--yellow);
+    }
+}

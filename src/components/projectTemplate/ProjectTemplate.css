@@ -1,0 +1,109 @@
+.individual_project_parent {
+    display: flex;
+    margin: 9rem 4rem;
+    gap: 3rem;
+}
+
+.individual_project_parent h1 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: white;
+}
+
+.individual_project_parent h1 span {
+    font-family: Consolas, Inter, system-ui, Avenir, Helvetica;
+}
+
+.individual_project_parent h1 span:nth-of-type(1) {
+    color: #1f51b3;
+}
+
+.individual_project_parent h1 span:nth-of-type(2) {
+    color: white;
+    font-size: 2.3rem;
+}
+
+.individual_project_parent h1 span:nth-of-type(3) {
+    color: #9cdcf7;
+}
+
+.individual_project_parent .project_and_tech {
+    flex: .5;
+    background-color: rgba(10, 34, 56, 1);
+    background: radial-gradient(circle at center, #2d4861, #172430);
+    padding: 1.5rem;
+    padding-top: 2rem;
+    border-radius: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.individual_project_parent .about_project {
+    flex: .5;
+}
+
+.individual_project_parent .project_and_tech img {
+    width: 100%;
+    border-radius: .8rem;
+    object-fit: contain;
+}
+
+.individual_project_parent .tech_used {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.individual_project_parent .tech_icons_container {
+    display: flex;
+    flex-wrap: wrap;
+    width: fit-content;
+}
+
+.individual_project_parent h3 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    position: relative;
+}
+
+.individual_project_parent h3::after {
+    content: ':';
+    position: relative;
+    bottom: 2px;
+    left: 1px;
+    font-weight: bold;
+}
+
+.individual_project_parent .icon_container {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    font-size: 1rem;
+    color: var(--dark_yellow);
+    align-items: center;
+    padding-right: 1.5rem;
+    cursor: default;
+    transition: all .4s ease;
+}
+
+.individual_project_parent .icon_container:last-of-type {
+    padding: 0;
+}
+
+.individual_project_parent .icon_container svg {
+    width: 4rem;
+    height: 4rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .individual_project_parent .tech_icons_container:hover .icon_container {
+        transform: scale(.8);
+        opacity: .5;
+    }
+
+    .individual_project_parent .tech_icons_container .icon_container:hover {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

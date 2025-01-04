@@ -1,0 +1,17 @@
+.error_page_container {
+    height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error_page_info {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.error_page_container a {
+    color: var(--purple);
+}
