@@ -24,16 +24,8 @@
     gap: clamp(1.5rem, 1.37vi + 0.75rem, 2.5rem);
 }
 
-.aboutContainer .wordpressIcon path {
-    transition: fill .3s ease;
-}
-
 .aboutContainer h2 {
     width: fit-content;
-}
-
-.dark .aboutContainer .wordpressIcon path {
-    fill: lightgray;
 }
 
 .aboutContainer .tech_stack_animation {

@@ -5,13 +5,13 @@
 }
 
 .individual_project_parent h1 {
-    font-size: clamp(2.7rem, 4vi + -2.5rem, 3.5rem);
-    font-weight: 400;
+    font-size: 2.7rem;
+    font-weight: 300;
     color: white;
+    width: fit-content;
 }
 
 .individual_project_parent .project_and_tech {
-    flex: .5;
     background-color: rgba(10, 34, 56, 1);
     background: radial-gradient(circle at center, #2d4861, #172430);
     padding: 1.5rem;
@@ -21,6 +21,42 @@
     flex-direction: column;
     gap: 1.5rem;
     height: fit-content;
+}
+
+.individual_project_parent .main_title_and_link {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+.individual_project_parent .main_title_and_link p {
+    display: none;
+    color: white;
+    line-height: 1;
+    font-weight: 300;
+    font-size: clamp(1rem, 0.5vi + 0.8rem, 1.2rem);
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
+}
+
+.individual_project_parent .image_and_link {
+    flex: .5;
+}
+
+.individual_project_parent .image_and_link .repo_ink {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: .2rem;
+    transition: gap .2s ease;
+}
+
+.individual_project_parent .image_and_link .repo_ink svg {
+    fill: var(--text-color);
+    transition: fill .3s ease;
+    height: 1.5rem;
+    width: 1.5rem;
 }
 
 .individual_project_parent .about_project {
@@ -49,7 +85,7 @@
 }
 
 .individual_project_parent h3 {
-    font-size: 1.8rem;
+    font-size: clamp(1.6rem, 0.23vi + 1.51rem, 1.8rem);
     font-weight: 500;
     position: relative;
 }
@@ -106,10 +142,66 @@
     font-weight: 700;
 }
 
+.individual_project_parent .project_details ul div {
+    display: inline;
+}
+
 .individual_project_parent .project_content {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+}
+
+.not_found {
+    margin-top: 20%;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+.individual_project_parent .go_to_site {
+    position: relative;
+    overflow: hidden;
+    transition: all .3s ease;
+}
+
+.individual_project_parent .go_to_site .overlay {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 34, 56, .6);
+    mix-blend-mode: luminosity;
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all .3s ease;
+}
+
+.individual_project_parent .go_to_site .overlay p {
+    font-size: 2rem;
+    color: white;
+    line-height: 1;
+    font-weight: 500;
+}
+
+.individual_project_parent  .overlay_title {
+    display: flex;
+    align-items: center;
+    gap: .2rem;
+    opacity: 0;
+    transform: translateY(30%);
+    transition: all .3s ease .2s;
+}
+
+.individual_project_parent .go_to_site .overlay svg {
+    fill: white;
+    height: 2rem;
+    width: 2rem;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -122,6 +214,23 @@
         transform: scale(1);
         opacity: 1;
     }
+
+    .individual_project_parent .go_to_site:hover {
+        border-radius: 4rem;
+    }
+
+    .individual_project_parent .go_to_site:hover .overlay_title {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .individual_project_parent .go_to_site:hover .overlay {
+        opacity: 1;
+    }
+
+    .individual_project_parent .image_and_link .repo_ink:hover {
+        gap: .5rem;
+    }
 }
 
 /* 1300px */
@@ -132,10 +241,6 @@
 
     .individual_project_parent .project_details ul {
         margin-left: 1.9rem;
-    }
-
-    .projects_parent h1 {
-        font-size: clamp(2.7rem, 0.75vi + 2.4rem, 3rem);
     }
 }
 
@@ -157,5 +262,31 @@
 
     .individual_project_parent .project_and_tech img {
         border-radius: .8rem;
+    }
+
+    .individual_project_parent h1 {
+        font-size: clamp(2rem, 1.75vi + 1.3rem, 2.7rem);
+    }
+
+    .individual_project_parent .project_and_tech {
+        gap: 1rem;
+    }
+
+    .individual_project_parent .main_title_and_link p {
+        display: block;
+    }
+
+    .individual_project_parent .image_and_link .repo_ink {
+        font-size: clamp(1.4rem, 0.5vi + 1.2rem, 1.6rem);
+    }
+
+    .individual_project_parent .icon_container {
+        padding: 0;
+    }
+
+    .individual_project_parent .tech_icons_container {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }

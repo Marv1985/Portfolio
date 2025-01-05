@@ -4,6 +4,7 @@ import JavascriptIcon from '../../assets/javascriptIcon.svg?component'
 import HtmlIcon from '../../assets/htmlIcon.svg?component'
 import CssIcon from '../../assets/cssIcon.svg?component'
 import Gsap from '../../assets/gsap.svg?component'
+import Right_arrow_500 from '../../assets/right_arrow_500.svg?component'
 
 const DefaultProject = () => {
 
@@ -18,23 +19,27 @@ const DefaultProject = () => {
     return (
         <div className="individual_project_parent">
           {/* Project GIF */}
-          <div className="project_and_tech">
-            <h1>My Portfolio</h1>
-            <img src="projectImgs/portfolio.png" alt="portfolio" />
-          </div>
-          <div className="about_project">
-            {/* Tech icons */}
-            <div className="tech_used">
-              <h3 className='tech_title'>TECH USED</h3>
-              <div className="tech_icons_container">
-                {Object.entries(obj).map(([key, { svg: SvgComponent, text }]) => (
-                        <div key={key} className="icon_container">
-                            <SvgComponent />
-                            <p>{text}</p>
-                        </div>
-                    ))}
-              </div>
+          <div className="image_and_link">
+            <div className="project_and_tech">
+              <h1>My Portfolio</h1>
+              <img src="projectImgs/portfolio.png" alt="portfolio" />
             </div>
+            <a className='repo_ink' href="https://github.com/Marv1985/portfolio" target="_blank">GITHUB REPO <Right_arrow_500 /></a>
+          </div>
+            <div className="about_project">
+              {/* Tech icons */}
+              <div className="tech_used">
+                <h3 className='tech_title'>TECH USED</h3>
+                <div className="tech_icons_container">
+                  {Object.entries(obj).map(([key, { svg: SvgComponent, text }]) => (
+                          <div key={key} className="icon_container">
+                              <SvgComponent />
+                              <p>{text}</p>
+                          </div>
+                      ))}
+                </div>
+              </div>
+              
             {/* Project details */}
             <div className="project_details">
               <h3 className='project_details_title'>Under the Hood</h3>

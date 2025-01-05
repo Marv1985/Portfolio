@@ -104,5 +104,11 @@ a {
   color: var(--font_color);
 }
 
+.wordpressIcon path {
+  transition: fill .3s ease;
+}
 
+.dark .wordpressIcon path {
+  fill: lightgray;
+}
 

@@ -39,6 +39,7 @@ const SideMenu = () => {
             ? currentPath.replace('/projects/', '') 
             : 'portfolio'; // Default to 'portfolio'
 
+        // The same function as the click function but this updates the state with the extracted url pathKey
         setSelectedLinks((prev) => {
             const updatedLinks = Object.keys(prev).reduce((acc, curr) => {
                 acc[curr] = curr === pathKey; // True for the matching key, false otherwise

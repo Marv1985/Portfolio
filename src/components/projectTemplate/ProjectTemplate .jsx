@@ -9,6 +9,7 @@ import GitIcon from '../../assets/gitIcon.svg?component'
 import HtmlIcon from '../../assets/htmlIcon.svg?component'
 import CssIcon from '../../assets/cssIcon.svg?component'
 import Gsap from '../../assets/gsap.svg?component'
+import Right_arrow_500 from '../../assets/right_arrow_500.svg?component'
 
 const ProjectTemplate = () => {
   const { projectId } = useParams(); // Get the dynamic segment from the URL (gets the last URL part and checks for it in the projectsData object)
@@ -26,7 +27,7 @@ const ProjectTemplate = () => {
   };
 
   if (!project) {
-    return <div>Project not found</div>;
+    return <div className='not_found'>Project not found</div>;
   }
 
   // Get tech id's
@@ -35,10 +36,24 @@ const ProjectTemplate = () => {
   return (
     <div className="individual_project_parent">
       {/* Project GIF */}
-      <a href={project.url} target="_blank" className="project_and_tech">
-        <h1>{project.title}</h1>
-        <img src={project.image} alt={project.title} />
-      </a>
+      <div className="image_and_link">
+        <a href={project.url} target="_blank" className="project_and_tech go_to_site">
+          <div className="overlay">
+            <div className="overlay_title">
+              <p>Visit {project.title}</p>
+              <Right_arrow_500 />
+            </div>
+          </div>
+          <div className="main_title_and_link">
+            <h1>{project.title}</h1>
+            <p>VISIT SITE</p>
+          </div>
+          
+          <img src={project.image} alt={project.title} />
+        </a>
+        <a className='repo_ink' href={project.repo} target="_blank">GITHUB REPO <Right_arrow_500 /></a>
+      </div>
+      
       <div className="about_project">
         {/* Tech icons */}
         <div className="tech_used">
@@ -63,20 +78,20 @@ const ProjectTemplate = () => {
             <ul>
               <li>
                 <span>{project.t_1}</span>
-                {project.t_1_p}
+                <div dangerouslySetInnerHTML={{ __html: project.t_1_p }} />
               </li>
               <li>
                 <span>{project.t_2}</span>
-                {project.t_2_p}
+                <div dangerouslySetInnerHTML={{ __html: project.t_2_p }} />
               </li>
               <li>
                 <span>{project.t_3}</span>
-                {project.t_3_p}
+                <div dangerouslySetInnerHTML={{ __html: project.t_3_p }} />
               </li>
               {(project.t_4 || project.t_4_p) && (
                 <li>
                   {project.t_4 && <span>{project.t_4}</span>}
-                  {project.t_4_p}
+                  <div dangerouslySetInnerHTML={{ __html: project.t_4_p }} />
                 </li>
               )}
             </ul>
