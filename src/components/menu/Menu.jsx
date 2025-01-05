@@ -8,6 +8,8 @@ import HamburgerButton from './HamburgerButton';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import SideMenu from '../projectsPage/SideMenu';
+import { useLocation } from 'react-router-dom';
 gsap.registerPlugin(useGSAP)
 gsap.registerPlugin(ScrollTrigger)
 
@@ -17,6 +19,10 @@ const Menu = () => {
     const [showMobileMenu, setShowMobileMenu] = useState(false);
     const button = useRef(null);
     const menuRef = useRef(null);
+
+    // Check Url to conditionally show/hide the sidemenu for projects page
+    const currentPath = location.pathname;
+    const pathKey = currentPath.startsWith('/projects') || currentPath.includes('/projects');
     
     // Show/hide elements at 800px
     useEffect(() => {
@@ -93,6 +99,7 @@ const Menu = () => {
                 </div>
             </div>
             {showMobileMenu && <MobileVersionMenu menuRef={menuRef} animateButton={animateButton}/>}
+            {windowWidth < 800 && pathKey && <SideMenu/>}
         </>
     )
 }

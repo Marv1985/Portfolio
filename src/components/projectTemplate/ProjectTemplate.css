@@ -200,7 +200,7 @@
 }
 
 .individual_project_parent .go_to_site .overlay p {
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 0.42vi + 1.47rem, 2rem);
     color: white;
     line-height: 1;
     font-weight: 500;
@@ -266,6 +266,10 @@
     .projects_parent .right_side {
         width: 100%;
         padding-bottom: 4rem;
+    }
+
+    .individual_project_parent .image_and_link {
+        margin-top: 6rem;
     }
 
     .individual_project_parent {

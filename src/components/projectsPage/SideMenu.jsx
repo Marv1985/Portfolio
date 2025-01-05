@@ -2,10 +2,19 @@ import { useState, useEffect } from 'react';
 import { projectsData } from '../projectTemplate/projectsData';
 import { Link, useLocation } from 'react-router-dom';
 import useFloatingHover from '../../floatingHoverAnimation/useFloatingHover';
+import MobileMenu from './MobileMenu';
 
 const SideMenu = () => {
     const { hoverDiv, hoverDivContainer, floatingSelectorShow, floatingSelectorHide, floatingSelectorMoveIn } = useFloatingHover();
     const location = useLocation();
+
+    // Get screen width to conditionally change sidemenu to mobile version
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     // Initialize state with the first link as 'true' and all others as 'false'
     const [selectedLinks, setSelectedLinks] = useState(() => {
@@ -51,28 +60,34 @@ const SideMenu = () => {
     
 
     return (
-        <div className="left_side">
-            <div className="projects_menu">
-                <h2>LATEST <br/> PROJECTS</h2>
-                <div className="ul_container">
-                    <ul ref={hoverDivContainer} onMouseEnter={floatingSelectorShow} onMouseLeave={floatingSelectorHide}>
-                        <div ref={hoverDiv} className="hover_div"></div>
+        windowWidth > 800 ? (
+            <div className="left_side">
+                <div className="projects_menu">
+                    <h2>LATEST <br/> PROJECTS</h2>
+                    <div className="ul_container">
+                        <ul ref={hoverDivContainer} onMouseEnter={floatingSelectorShow} onMouseLeave={floatingSelectorHide}>
+                            <div ref={hoverDiv} className="hover_div"></div>
 
-                        <li>
-                            <Link onClick={() => handleSelect('portfolio')} onMouseEnter={floatingSelectorMoveIn} to={'/projects'} className={selectedLinks['portfolio'] ? 'selected' : ''}>My Portfolio</Link>
-                        </li>
-
-                        {Object.keys(projectsData).map((key) => (
-                            <li key={key}>
-                                <Link onClick={() => handleSelect(key)} onMouseEnter={floatingSelectorMoveIn} to={`/projects/${key}`} className={selectedLinks[key] ? 'selected' : ''}>
-                                    {projectsData[key].title}
+                            <li>
+                                <Link onClick={() => handleSelect('portfolio')} onMouseEnter={floatingSelectorMoveIn} to={'/projects'} className={selectedLinks['portfolio'] ? 'selected' : ''}>
+                                    My Portfolio
                                 </Link>
                             </li>
-                        ))}
-                    </ul>
+
+                            {Object.keys(projectsData).map((key) => (
+                                <li key={key}>
+                                    <Link onClick={() => handleSelect(key)} onMouseEnter={floatingSelectorMoveIn} to={`/projects/${key}`} className={selectedLinks[key] ? 'selected' : ''}>
+                                        {projectsData[key].title}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
+        ) : (
+            <MobileMenu handleSelect={handleSelect} selectedLinks={selectedLinks} projectsData={projectsData}/>
+        )
     );
 };
 

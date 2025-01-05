@@ -230,6 +230,36 @@ input[type="checkbox"]:focus-visible + span {
   width: 100%;
 }
 
+.mobile_projects_menu {
+  position: fixed;
+  top: 6rem;
+  left: 0;
+  z-index: 2;
+  height: 3rem;
+  width: 100%;
+  border-bottom: .1rem solid rgba(10, 34, 56, 0.3);;
+}
+
+.mobile_projects_menu .swiper {
+  padding: 0 1.5rem;
+}
+
+.mobile_projects_menu .swiper-slide {
+  width: fit-content;
+  padding-bottom: .2rem;
+}
+
+.mobile_projects_menu a {
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-size: clamp(1.4rem, 0.25vi + 1.3rem, 1.5rem);
+  border-bottom: .1rem solid transparent;
+}
+
+.mobile_projects_menu a.selected {
+  border-color: var(--dark_yellow);
+}
+
 @media (hover: hover) and (pointer: fine) {
   .menu_container ul a.is_active:hover {
     color: var(--yellow);
@@ -247,6 +277,11 @@ input[type="checkbox"]:focus-visible + span {
   .menu_container,
   .menu_spacer {
     height: 6rem;
+  }
+
+  .menu_container,
+  .mobile_projects_menu {
+    background-color: var(--background-color);
   }
 
   .menu_container .switch {
