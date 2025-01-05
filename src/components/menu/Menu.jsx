@@ -24,11 +24,11 @@ const Menu = () => {
     const currentPath = location.pathname;
     const pathKey = currentPath.startsWith('/projects') || currentPath.includes('/projects');
 
-    // useEffect(() => {
-    //     if (button.current) {
-    //         gsap.set(button.current, { rotate: 0, gap: "2px" });
-    //     }
-    // }, []);    
+    useEffect(() => {
+        if (button.current) {
+            gsap.set(button.current, { rotate: 0, gap: "2px" });
+        }
+    }, []);    
     
     // Show/hide elements at 800px
     useEffect(() => {
