@@ -1,12 +1,16 @@
 import './ProjectTemplate.css'
+import { useParams } from 'react-router-dom';
 import ReactIcon from '../../assets/reactIcon.svg?component'
 import JavascriptIcon from '../../assets/javascriptIcon.svg?component'
 import HtmlIcon from '../../assets/htmlIcon.svg?component'
 import CssIcon from '../../assets/cssIcon.svg?component'
 import Gsap from '../../assets/gsap.svg?component'
 import Right_arrow_500 from '../../assets/right_arrow_500.svg?component'
+import ProjectAnimations from './ProjectAnimations';
 
 const DefaultProject = () => {
+  const { projectId } = useParams();
+  const ref = ProjectAnimations({ projectId });
 
     const obj = {
           1: { svg: ReactIcon, text: 'REACT' },
@@ -17,7 +21,7 @@ const DefaultProject = () => {
       };
 
     return (
-        <div className="individual_project_parent">
+        <div ref={ref} className="individual_project_parent">
           {/* Project GIF */}
           <div className="image_and_link">
             <div className="project_and_tech">

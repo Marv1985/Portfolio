@@ -10,14 +10,16 @@ import HtmlIcon from '../../assets/htmlIcon.svg?component'
 import CssIcon from '../../assets/cssIcon.svg?component'
 import Gsap from '../../assets/gsap.svg?component'
 import Right_arrow_500 from '../../assets/right_arrow_500.svg?component'
-import { useState } from 'react';
+import { useState } from 'react'
 import { squircle } from 'ldrs'
+import ProjectAnimations from './ProjectAnimations';
 
 squircle.register()
 
 const ProjectTemplate = () => {
   const { projectId } = useParams(); // Get the dynamic segment from the URL (gets the last URL part and checks for it in the projectsData object)
   const project = projectsData[projectId]; // Fetch data for the current project
+  const ref = ProjectAnimations({ projectId });
 
   const obj = {
     1: { svg: ReactIcon, text: 'REACT' },
@@ -44,7 +46,7 @@ const ProjectTemplate = () => {
   const selectedTech = project.techIds || [];
 
   return (
-    <div className="individual_project_parent">
+    <div ref={ref} className="individual_project_parent">
       {/* Project GIF */}
       <div className="image_and_link">
         <a href={project.url} target="_blank" className="project_and_tech go_to_site">
