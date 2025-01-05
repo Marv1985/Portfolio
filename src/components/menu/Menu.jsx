@@ -23,12 +23,6 @@ const Menu = () => {
     // Check Url to conditionally show/hide the sidemenu for projects page
     const currentPath = location.pathname;
     const pathKey = currentPath.startsWith('/projects') || currentPath.includes('/projects');
-
-    useEffect(() => {
-        if (button.current) {
-            gsap.set(button.current, { rotate: 0, gap: "2px" });
-        }
-    }, []);    
     
     // Show/hide elements at 800px
     useEffect(() => {
@@ -56,7 +50,7 @@ const Menu = () => {
     // Hamburger button and mobile menu unmount
     const animateButton = useCallback(() => {
         if (showMobileMenu && button.current) {
-            gsap.to(button.current, { rotate: 0, gap: "2px", duration: 0.2, ease: "power1.out" });
+            button.current.classList.remove('is_active')
             document.body.classList.remove("no-scroll");
             
             gsap.to(menuRef.current, {
@@ -79,10 +73,7 @@ const Menu = () => {
 
             let buttonTl = gsap.timeline()
             
-            buttonTl.fromTo(button.current, 
-                { rotate: 0, gap: "2px" }, 
-                { rotate: 45, gap: "4px", duration: 0.25, ease: "power1.in" } 
-            );
+            button.current.classList.add('is_active')
             buttonTl.fromTo(
                 menuRef.current,
                 { opacity: 0, backgroundColor: "rgba(255, 255, 255, 0)", ease: "power1.out"},
