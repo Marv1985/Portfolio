@@ -41,7 +41,7 @@
   display: flex;
 }
 
-.dark .menu_container ul {
+.dark .menu_container ul a {
   color: white !important;
 }
 

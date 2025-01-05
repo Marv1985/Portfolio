@@ -11,8 +11,8 @@ const About = () => {
 
     useGSAP(() => {
 
-        gsap.fromTo('h1', {autoAlpha: 0, y: "30px"}, {autoAlpha: 1, y: 0, duration: .8, delay: .5, ease: "power1.out"})
-        gsap.fromTo('p', {autoAlpha: 0, x: "20px"}, {autoAlpha: 1, x: 0, duration: .8, delay: 1.1, ease: "power1.out"})
+        gsap.fromTo('h1', {autoAlpha: 0, y: "30px"}, {autoAlpha: 1, y: 0, duration: .8, delay: .3, ease: "power1.out"})
+        gsap.fromTo('p', {autoAlpha: 0, x: "20px"}, {autoAlpha: 1, x: 0, duration: .8, delay: 0.9, ease: "power1.out"})
 
     }, { scope: introText })
 

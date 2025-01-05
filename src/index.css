@@ -101,7 +101,7 @@ button {
 
 a {
   text-decoration: none;
-  color: var(--font_color);
+  color: var(--text-color);
 }
 
 .wordpressIcon path {

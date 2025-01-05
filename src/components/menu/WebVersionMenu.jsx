@@ -40,10 +40,8 @@ const WebVersionMenu = ({menuContainer}) => {
             // Tweens
             tl.to(hoverDiv.current, { display: "none" }, 0);
             tl.to('.liTags', { marginTop: "0" }, 0);
-            tl.to('.menu_container ul', {
-                backgroundColor: "rgb(10 34 56)",
-                color: "white",
-            }, 0.3);
+            tl.to('.menu_container ul', { backgroundColor: "rgb(10 34 56)"}, 0.3);
+            tl.fromTo('.menu_container ul a', {color: "#213547"}, {color: "white"}, 0.3);
             tl.to('.menu_container ul', {
                 gap: "0",
                 padding: "5px",
