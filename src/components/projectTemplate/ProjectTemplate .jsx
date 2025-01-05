@@ -48,8 +48,15 @@ const ProjectTemplate = () => {
             <h1>{project.title}</h1>
             <p>VISIT SITE</p>
           </div>
+
+          {/* Placeholder image to prevent layout shifts */}
+          {project.image ? (
+            <img src={project.image} alt={project.title} />
+          ):(
+            <div className="skeleton_loader"></div>
+          )}
+
           
-          <img src={project.image} alt={project.title} />
         </a>
         <a className='repo_ink' href={project.repo} target="_blank">GITHUB REPO <Right_arrow_500 /></a>
       </div>
