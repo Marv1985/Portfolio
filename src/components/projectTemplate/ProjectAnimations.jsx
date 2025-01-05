@@ -23,8 +23,8 @@ const ProjectAnimations = ({ projectId }) => {
         );
         tl.fromTo('.individual_project_parent .project_details', 
           { opacity: 0 }, 
-          { opacity: 1, duration: 0.5 },
-          0.4
+          { opacity: 1, duration: 0.3 },
+          0.2
         );
       } else {
         tl.fromTo('.individual_project_parent .image_and_link', 
@@ -38,7 +38,8 @@ const ProjectAnimations = ({ projectId }) => {
         );
         tl.fromTo('.individual_project_parent .project_details', 
           { opacity: 0 }, 
-          { opacity: 1, duration: 0.5 },
+          { opacity: 1, duration: 0.3 },
+          0.15
         );
       }
     
