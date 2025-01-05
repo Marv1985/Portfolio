@@ -154,15 +154,16 @@ input[type="checkbox"]:focus-visible + span {
 }
 
 .hamburgerButton {
+  will-change: transform, gap;
   gap: .2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   height: fit-content;
-  transition: all .1s ease-in-out;
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), gap 0.25s ease;
 }
 
 .hamburgerButton.is_active {
-  transform: rotate(45deg);
+  transform: rotate(45deg) translateZ(0);
   gap: .4rem;
 }
 
