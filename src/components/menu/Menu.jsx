@@ -9,7 +9,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import SideMenu from '../projectsPage/SideMenu';
-import { useLocation } from 'react-router-dom';
+import { useCallback } from 'react';
 gsap.registerPlugin(useGSAP)
 gsap.registerPlugin(ScrollTrigger)
 
@@ -23,6 +23,12 @@ const Menu = () => {
     // Check Url to conditionally show/hide the sidemenu for projects page
     const currentPath = location.pathname;
     const pathKey = currentPath.startsWith('/projects') || currentPath.includes('/projects');
+
+    // useEffect(() => {
+    //     if (button.current) {
+    //         gsap.set(button.current, { rotate: 0, gap: "2px" });
+    //     }
+    // }, []);    
     
     // Show/hide elements at 800px
     useEffect(() => {
@@ -47,29 +53,25 @@ const Menu = () => {
         };
     }, []);
 
-    // useGsap to handle cleanup of GSAP in event handler function
-    const { contextSafe } = useGSAP();
     // Hamburger button and mobile menu unmount
-    const animateButton = contextSafe(() => {
+    const animateButton = useCallback(() => {
         if (showMobileMenu && button.current) {
-            // Close the menu
-            gsap.to(button.current, {rotate: 0, gap: "2px", duration: .2, ease: "power1.out"})
-            document.body.classList.remove('no-scroll'); // Enable scrolling on the body
-        
+            gsap.to(button.current, { rotate: 0, gap: "2px", duration: 0.2, ease: "power1.out" });
+            document.body.classList.remove("no-scroll");
+            
             gsap.to(menuRef.current, {
                 opacity: 0,
                 duration: 0.2,
                 onComplete: () => {
-                setShowMobileMenu(false); // Set the menu visibility to false
-            },
+                    setShowMobileMenu(false);
+                },
             });
-            
         } else {
-          // Open the menu
-          setShowMobileMenu(true); // Set the menu visibility to true
-          document.body.classList.add('no-scroll'); // Disable scrolling on the body
+            setShowMobileMenu(true);
+            document.body.classList.add("no-scroll");
         }
-    });
+    }, [showMobileMenu]);
+    
     
     // Mobile menu animation
     useGSAP(() => {
@@ -77,7 +79,10 @@ const Menu = () => {
 
             let buttonTl = gsap.timeline()
             
-            buttonTl.to(button.current, {rotate: 45, gap: "4px", duration: .25, ease: "power1.in"})
+            buttonTl.fromTo(button.current, 
+                { rotate: 0, gap: "2px" }, 
+                { rotate: 45, gap: "4px", duration: 0.25, ease: "power1.in" } 
+            );
             buttonTl.fromTo(
                 menuRef.current,
                 { opacity: 0, backgroundColor: "rgba(255, 255, 255, 0)", ease: "power1.out"},

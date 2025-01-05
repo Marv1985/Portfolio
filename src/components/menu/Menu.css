@@ -160,6 +160,11 @@ input[type="checkbox"]:focus-visible + span {
   height: fit-content;
 }
 
+/* .hamburgerButton {
+  transform: rotate(0deg);
+  gap: 2px;
+} */
+
 .hamburgerButton div {
   border-radius: .5rem;
   width: 1.3rem;
