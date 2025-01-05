@@ -13,7 +13,7 @@
 }
 
 .projects_parent .right_side {
-    min-height: 100vh;
+    min-height: 100svh;
     width: calc(100% - 28rem);
     margin-left: auto;
 }
