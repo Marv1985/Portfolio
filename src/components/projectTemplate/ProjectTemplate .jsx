@@ -10,6 +10,10 @@ import HtmlIcon from '../../assets/htmlIcon.svg?component'
 import CssIcon from '../../assets/cssIcon.svg?component'
 import Gsap from '../../assets/gsap.svg?component'
 import Right_arrow_500 from '../../assets/right_arrow_500.svg?component'
+import { useState } from 'react';
+import { squircle } from 'ldrs'
+
+squircle.register()
 
 const ProjectTemplate = () => {
   const { projectId } = useParams(); // Get the dynamic segment from the URL (gets the last URL part and checks for it in the projectsData object)
@@ -30,6 +34,12 @@ const ProjectTemplate = () => {
     return <div className='not_found'>Project not found</div>;
   }
 
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const handleImageLoad = () => {
+    setIsLoaded(true);
+  };
+
   // Get tech id's
   const selectedTech = project.techIds || [];
 
@@ -48,15 +58,17 @@ const ProjectTemplate = () => {
             <h1>{project.title}</h1>
             <p>VISIT SITE</p>
           </div>
-
-          {/* Placeholder image to prevent layout shifts */}
-          {project.image ? (
-            <img src={project.image} alt={project.title} />
-          ):(
-            <div className="skeleton_loader"></div>
-          )}
-
-          
+          <div className={isLoaded ? 'loaded' : 'loading'}>
+          <l-squircle
+              size="26"
+              stroke="4"
+              stroke-length="0.15"
+              bg-opacity="0.1"
+              speed="0.9" 
+              color="white" 
+            ></l-squircle>
+          </div>
+          <img onLoad={handleImageLoad} src={project.image} alt={project.title} />
         </a>
         <a className='repo_ink' href={project.repo} target="_blank">GITHUB REPO <Right_arrow_500 /></a>
       </div>

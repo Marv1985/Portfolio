@@ -70,6 +70,23 @@
     width: 100%;
     border-radius: .5rem;
     object-fit: cover;
+    aspect-ratio: 2.19;
+}
+
+.individual_project_parent .image_and_link .loaded {
+    display: none;
+}
+
+.individual_project_parent .image_and_link .loading {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .individual_project_parent .tech_used {
@@ -163,24 +180,6 @@
     position: relative;
     overflow: hidden;
     transition: all .3s ease;
-}
-
-.individual_project_parent .skeleton_loader {
-    width: 100%;
-    aspect-ratio: 2/1;
-    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-    background-size: 200% 100%;
-    animation: shimmer 1.5s infinite linear;
-    border-radius: .5rem;
-}
-
-@keyframes shimmer {
-    0% {
-      background-position: -200% 0;
-    }
-    100% {
-      background-position: 200% 0;
-    }
 }
 
 .individual_project_parent .go_to_site .overlay {
