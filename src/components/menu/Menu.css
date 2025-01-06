@@ -270,7 +270,7 @@ input[type="checkbox"]:focus-visible + span {
 
 @media (hover: hover) and (pointer: fine) {
   .menu_container ul a.is_active:hover {
-    color: var(--yellow);
+    color: var(--yellow) !important;
   }
 }
 
