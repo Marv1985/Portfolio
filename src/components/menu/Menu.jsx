@@ -9,7 +9,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import SideMenu from '../projectsPage/SideMenu';
-import { useCallback } from 'react';
 gsap.registerPlugin(useGSAP)
 gsap.registerPlugin(ScrollTrigger)
 
@@ -23,7 +22,7 @@ const Menu = () => {
     // Check Url to conditionally show/hide the sidemenu for projects page
     const currentPath = location.pathname;
     const pathKey = currentPath.startsWith('/projects') || currentPath.includes('/projects');
-    
+
     // Show/hide elements at 800px
     useEffect(() => {
         const handleResize = () => {
@@ -48,23 +47,28 @@ const Menu = () => {
     }, []);
 
     // Hamburger button and mobile menu unmount
-    const animateButton = useCallback(() => {
+    const { contextSafe } = useGSAP();
+    // Hamburger button and mobile menu unmount
+    const animateButton = contextSafe(() => {
         if (showMobileMenu && button.current) {
-            button.current.classList.remove('is_active')
-            document.body.classList.remove("no-scroll");
-            
+            // Close the menu
+            gsap.to(button.current, {rotate: 0, gap: "2px", duration: .2, ease: "power1.out"})
+            document.body.classList.remove('no-scroll'); // Enable scrolling on the body
+
             gsap.to(menuRef.current, {
                 opacity: 0,
                 duration: 0.2,
                 onComplete: () => {
-                    setShowMobileMenu(false);
-                },
+                setShowMobileMenu(false); // Set the menu visibility to false
+            },
             });
+
         } else {
-            setShowMobileMenu(true);
-            document.body.classList.add("no-scroll");
+          // Open the menu
+          setShowMobileMenu(true); // Set the menu visibility to true
+          document.body.classList.add('no-scroll'); // Disable scrolling on the body
         }
-    }, [showMobileMenu]);
+    });
     
     
     // Mobile menu animation
@@ -73,7 +77,10 @@ const Menu = () => {
 
             let buttonTl = gsap.timeline()
             
-            button.current.classList.add('is_active')
+            buttonTl.fromTo(button.current, 
+                { rotate: 0, gap: "2px" }, 
+                { rotate: 45, gap: "4px", duration: 0.2, ease: "power1.out" } 
+            );
             buttonTl.fromTo(
                 menuRef.current,
                 { opacity: 0, backgroundColor: "rgba(255, 255, 255, 0)", ease: "power1.out"},
