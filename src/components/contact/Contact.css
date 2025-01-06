@@ -1,4 +1,169 @@
 .contact_form {
-    min-height: 100svh;
-    padding: 8rem 0;
+    min-height: calc(100svh - 15rem);
+    padding: 3rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.contact_form form .message_sending_overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(10, 34, 56, .6);
+    backdrop-filter: blur(6px);
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact_form form .message_sending_overlay p {
+    font-size: clamp(1.6rem, 0.23vi + 1.51rem, 1.8rem);
+    color: white;
+    text-align: center;
+}
+
+.contact_form form {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: min(80rem, 100%);
+    margin: auto;
+    background-color: rgba(10, 34, 56, 1);
+    background: radial-gradient(circle at center, #2d4861, #172430);
+    border-radius: 1.4rem;
+    padding: clamp(1.5rem, 3.13vi + -1rem, 3rem);
+}
+
+.contact_form form label {
+    color: white;
+    font-weight: 400;
+    font-size: 1.3rem;
+}
+
+.contact_form form div {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    position: relative;
+}
+
+.contact_form form .alert {
+    position: absolute;
+    top: -.2rem;
+    right: 0;
+    color: red;
+    font-weight: 30;
+}
+
+.contact_form .message_and_submit_button {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    gap: 1.5rem;
+}
+
+.contact_form .submit_button {
+    height: fit-content;
+    background-color: var(--yellow);
+    color: #213547;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-color: transparent;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.contact_form .submit_button:focus {
+    border-color: white;
+    background-color: #b58e07;
+    color: white;
+}
+
+.contact_form .message_and_submit_button input[type="submit"],
+.contact_form .message_and_submit_button div {
+    width: 50%;
+}
+
+.contact_form textarea {
+    height: 22rem;
+    resize: none;
+}
+
+.contact_form textarea,
+.contact_form input {
+    color: white;
+}
+
+.contact_form textarea:focus,
+.contact_form input:focus {
+    outline: none;
+    border-color: white;
+}
+
+.contact_form textarea,
+.contact_form input {
+    font-size: 1.6rem;
+    border-color: rgba(255, 255, 255, 0.3);
+    padding: 1.3rem;
+    border-radius: .5rem;
+    background-color: rgba(255, 255, 255, .2);
+}
+
+.contact_form h1 {
+    color: white;
+    font-weight: 300;
+    font-size: 3.2rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .contact_form .submit_button:hover {
+        background-color: #b58e07;
+        color: white;
+    }
+}
+
+/* 800px */
+@media screen and (max-width: 50em) {
+    .contact_form {
+       min-height: calc(100svh - 11rem);
+    }
+
+    .contact_form form .alert {
+        font-size: 1.2rem;
+        top: -.1rem;
+    }
+}
+
+/* 550px */
+@media screen and (max-width: 34.375em) {
+    .contact_form .message_and_submit_button {
+        flex-direction: column;
+    }
+
+    .contact_form .message_and_submit_button input[type="submit"], 
+    .contact_form .message_and_submit_button div {
+        width: 100%;
+    }
+
+    .contact_form .message_and_submit_button input[type="submit"] {
+        padding: .8rem 1.5rem;
+        width: fit-content;
+        font-size: 1.4rem;
+    }
+
+    .contact_form form label {
+        font-size: 1.2rem;
+    }
+
+    .contact_form textarea {
+        height: 13rem;
+    }
+
+    .contact_form textarea, .contact_form input {
+        padding: .8rem;
+    }
 }

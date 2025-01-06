@@ -14,9 +14,8 @@ import { useState } from 'react'
 import { squircle } from 'ldrs'
 import ProjectAnimations from './ProjectAnimations';
 
-squircle.register()
-
 const ProjectTemplate = () => {
+  squircle.register()
   const { projectId } = useParams(); // Get the dynamic segment from the URL (gets the last URL part and checks for it in the projectsData object)
   const project = projectsData[projectId]; // Fetch data for the current project
   const ref = ProjectAnimations({ projectId });
