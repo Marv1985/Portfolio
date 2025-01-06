@@ -1,4 +1,4 @@
-import TsParticles from "./TsParticles";
+// import TsParticles from "./TsParticles";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
@@ -22,7 +22,7 @@ const MobileVersionMenu = ({menuRef, animateButton}) => {
       return (
         <div ref={menuRef} className="mobileMenuBackground">
             <div className="centerMenu max_width">
-              <TsParticles/>
+              {/* <TsParticles/> */}
                 <ul ref={MobileMenuContainer}>
                   <li>
                       <Link onClick={animateButton} to="/">ABOUT</Link>

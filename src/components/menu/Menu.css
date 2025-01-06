@@ -229,14 +229,14 @@ input[type="checkbox"]:focus-visible + span {
   text-align: center;
 }
 
-#tsparticles {
+/* #tsparticles {
   pointer-events: none;
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-}
+} */
 
 .mobile_projects_menu {
   position: fixed;
