@@ -282,6 +282,7 @@ input[type="checkbox"]:focus-visible + span {
   .menu_container,
   .mobile_projects_menu {
     background-color: var(--background-color);
+    transition: background-color .3s ease;
   }
 
   .menu_container .switch {
