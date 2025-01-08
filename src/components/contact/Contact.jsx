@@ -13,7 +13,7 @@ const Contact = () => {
 
   return (
     <div className="contact_form max_width">
-      <form ref={form} onSubmit={handleSubmit(() => sendEmail(reset))}>
+      <form ref={form} onSubmit={handleSubmit((data) => sendEmail(data, reset))}>
         <h1>Get in Touch</h1>
         
         {/* Overlay */}

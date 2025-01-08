@@ -8,7 +8,7 @@ const UseSendEmail = () => {
   const [failed, setFailed] = useState(false);
   const form = useRef();
 
-  const sendEmail = () => {
+  const sendEmail = (data, reset) => {
     emailjs
       .sendForm('service_e7x8zas', 'template_bdzz1wa', form.current, {
         publicKey: 'ejcMDdG0HzSXhDJhO',
@@ -18,6 +18,7 @@ const UseSendEmail = () => {
           setShowSvg(false);
           setSuccess(true);
           console.log('Message sent successfully');
+          reset(); // Reset the form after successful submission
         },
         (error) => {
           setShowSvg(false);
@@ -25,16 +26,17 @@ const UseSendEmail = () => {
           console.log('Message sending failed', error.text);
         },
       );
-
+  
     setShowOverlay(true);
     setShowSvg(true);
-
+  
     setTimeout(() => {
       setShowOverlay(false);
       setSuccess(false);
       setFailed(false);
     }, 3000);
   };
+  
 
   return {
     sendEmail,
