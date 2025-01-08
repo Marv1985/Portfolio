@@ -8,16 +8,16 @@ const UseSendEmail = () => {
   const [failed, setFailed] = useState(false);
   const form = useRef();
 
-  const sendEmail = (resetForm) => {
+  const sendEmail = () => {
     emailjs
-      .sendForm('service_e7x8zas', 'template_bdzz1wa', form.current, process.env.REACT_APP_EMAILJS_PUBLIC_KEY, // Access environment variable,
-      )
+      .sendForm('service_e7x8zas', 'template_bdzz1wa', form.current, {
+        publicKey: 'ejcMDdG0HzSXhDJhO',
+      })
       .then(
         () => {
           setShowSvg(false);
           setSuccess(true);
           console.log('Message sent successfully');
-          if (resetForm) resetForm(); // Reset form fields
         },
         (error) => {
           setShowSvg(false);
