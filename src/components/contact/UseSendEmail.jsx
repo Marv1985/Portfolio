@@ -10,9 +10,8 @@ const UseSendEmail = () => {
 
   const sendEmail = (resetForm) => {
     emailjs
-      .sendForm('service_e7x8zas', 'template_bdzz1wa', form.current, {
-        publicKey: 'ejcMDdG0HzSXhDJhO',
-      })
+      .sendForm('service_e7x8zas', 'template_bdzz1wa', form.current, process.env.REACT_APP_EMAILJS_PUBLIC_KEY, // Access environment variable,
+      )
       .then(
         () => {
           setShowSvg(false);
