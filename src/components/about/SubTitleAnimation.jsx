@@ -21,6 +21,9 @@ const SubTitleAnimation = () => {
       ease: "none",
       onComplete: () => {
         gsap.set(cursorRef.current, { display: "none", delay: 1.5 });
+        setTimeout(() => {
+          gsap.killTweensOf(cursorRef.current);
+        }, 1500);
       }
     });
 

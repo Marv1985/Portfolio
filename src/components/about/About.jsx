@@ -4,6 +4,7 @@ import SubTitleAnimation from './SubTitleAnimation'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { useRef } from 'react'
+import ReactKnowledge from './ReactKnowledge'
 
 const About = () => {
 
@@ -26,6 +27,7 @@ const About = () => {
                 <div className="tech_stack">
                     <SubTitleAnimation />
                     <TechStackAnimation />
+                    <ReactKnowledge />
                 </div>
             </div>
         </div>
