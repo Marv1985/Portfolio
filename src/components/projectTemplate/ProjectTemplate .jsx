@@ -71,7 +71,10 @@ const ProjectTemplate = () => {
           </div>
           <img onLoad={handleImageLoad} src={project.image} alt={project.title} />
         </a>
-        <a className='repo_ink' href={project.repo} target="_blank">GITHUB REPO <Right_arrow_500 /></a>
+        <div className="links">
+          <a className='link' href={project.repo} target="_blank">GITHUB REPO <Right_arrow_500 /></a>
+          <a className='link' href={project.url} target="_blank">VISIT SITE <Right_arrow_500 /></a>
+        </div>
       </div>
       
       <div className="about_project">

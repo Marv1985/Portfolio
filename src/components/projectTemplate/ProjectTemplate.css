@@ -44,15 +44,21 @@
     flex: .5;
 }
 
-.individual_project_parent .image_and_link .repo_ink {
+.individual_project_parent .image_and_link .links {
     margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.individual_project_parent .image_and_link .link {
     display: flex;
     align-items: center;
     gap: .2rem;
     transition: gap .2s ease;
+    width: fit-content;
 }
 
-.individual_project_parent .image_and_link .repo_ink svg {
+.individual_project_parent .image_and_link .link svg {
     fill: var(--text-color);
     transition: fill .3s ease;
     height: 1.5rem;
@@ -233,7 +239,7 @@
     }
 
     .individual_project_parent .go_to_site:hover {
-        border-radius: 4rem;
+        border-radius: 3rem;
     }
 
     .individual_project_parent .go_to_site:hover .overlay_title {
@@ -245,7 +251,7 @@
         opacity: 1;
     }
 
-    .individual_project_parent .image_and_link .repo_ink:hover {
+    .individual_project_parent .image_and_link .link:hover {
         gap: .5rem;
     }
 }
@@ -297,7 +303,7 @@
         display: block;
     }
 
-    .individual_project_parent .image_and_link .repo_ink {
+    .individual_project_parent .image_and_link .link {
         font-size: clamp(1.4rem, 0.5vi + 1.2rem, 1.6rem);
     }
 
