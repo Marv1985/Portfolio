@@ -28,7 +28,9 @@ const DefaultProject = () => {
               <h1>My Portfolio</h1>
               <img src="projectImgs/portfolio.png" alt="portfolio" />
             </div>
-            <a className='repo_ink' href="https://github.com/Marv1985/portfolio" target="_blank">GITHUB REPO <Right_arrow_500 /></a>
+            <div className="links">
+              <a className='link' href="https://github.com/Marv1985/portfolio" target="_blank">GITHUB REPO <Right_arrow_500 /></a>
+            </div>
           </div>
             <div className="about_project">
               {/* Tech icons */}
