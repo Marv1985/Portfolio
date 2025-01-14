@@ -217,8 +217,8 @@
     align-items: center;
     gap: .2rem;
     opacity: 0;
-    transform: translateY(30%);
-    transition: all .3s ease .2s;
+    transform: translateY(50%);
+    transition: all 0s ease 0s;
 }
 
 .individual_project_parent .go_to_site .overlay svg {
@@ -245,6 +245,7 @@
     .individual_project_parent .go_to_site:hover .overlay_title {
         opacity: 1;
         transform: translateY(0);
+        transition: all .3s ease .1s;
     }
 
     .individual_project_parent .go_to_site:hover .overlay {
